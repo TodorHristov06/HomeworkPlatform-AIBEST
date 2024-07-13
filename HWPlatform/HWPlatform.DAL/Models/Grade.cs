@@ -15,5 +15,9 @@ public class Grade
     [Required]
     public string Feedback { get; set; } = string.Empty;
 
-    // TODO: Add a relation to HomeworkSubmissions named SubmissionId (one to one)
+    // FK property to HomeworkSubmission
+    public int SubmissionId { get; set; }
+
+    [Required]
+    public HomeworkSubmission Submission { get; set; } = null!;
 }

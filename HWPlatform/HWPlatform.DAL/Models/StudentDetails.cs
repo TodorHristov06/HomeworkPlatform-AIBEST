@@ -5,11 +5,22 @@ namespace HWPlatform.DAL.Models;
 
 public class StudentDetails
 {
-    // TODO: Add relation to Users (one to one)
-    // Make the field named Id and make it the PK
+    // FK property to Users
+    [Key]
+    public int UserId { get; set; }
 
-    // TODO: Add relation to Classes (one to many)
+    [Required] 
+    public User User { get; set; } = null!;
+
+    // FK property to Classes
+    public int ClassId { get; set; }
+
+    [Required]
+    public Class Class { get; set; } = null!;
 
     [Required]
     public int ClassNumber { get; set; }
+
+    // Reference navigation to HomeworkSubmission
+    public HomeworkSubmission? HomeworkSubmission { get; set; }
 }

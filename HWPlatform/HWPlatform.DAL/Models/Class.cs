@@ -1,8 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HWPlatform.DAL.Models;
 
+[PrimaryKey(nameof(ClassName), nameof(Year))]
 public class Class
 {
     [Required]
@@ -14,6 +16,13 @@ public class Class
 
     [Required]
     public int Year { get; set; }
-    
-    // TODO: Create a composite PK from ClassName and Year
+
+    // Collection navigation to StudentDetails
+    public ICollection<StudentDetails> Students { get; } = new List<StudentDetails>();
+
+    // FK property to Teachers
+    public int TeacherId { get; set; }
+
+    [Required]
+    public Teacher Teacher { get; set; } = null!;
 }

@@ -11,4 +11,7 @@ public class UserRoles
 
     [Required]
     public string Name { get; set; } = string.Empty;
+
+    // Collection navigation to Users
+    public ICollection<User> Users { get; } = new List<User>();
 }

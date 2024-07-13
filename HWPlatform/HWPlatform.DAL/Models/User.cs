@@ -24,5 +24,15 @@ public class User
     [Required]
     public bool IsActive { get; set; }
 
-    // TODO: Add relation to UserRoles (one to many)
+    // FK property to UserRoles
+    public int RoleId { get; set; }
+
+    [Required]
+    public UserRoles Roles { get; set; } = null!;
+
+    // Reference navigation to StudentDetails
+    public StudentDetails? Student { get; set; }
+
+    // Reference navigation to Teachers
+    public Teacher? Teacher { get; set; }
 }

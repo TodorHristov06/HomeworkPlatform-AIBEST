@@ -21,7 +21,18 @@ public class HomeworkAssignment
     [Required]
     public string Description { get; set; } = string.Empty;
 
-    // TODO: Create a relation to Teachers named TeacherId (one to many)
+    // FK property to Teachers
+    public int TeacherId { get; set; }
 
-    // TODO: Create a relation to Subjects named SubjectName (one to many)
+    [Required]
+    public Teacher Teacher { get; set; } = null!;
+
+    // FK property to Subjects
+    public int SubjectId { get; set; }
+
+    [Required]
+    public Subject Subject { get; set; } = null!;
+
+    // Collection navigation to HomeworkSubmission
+    public ICollection<HomeworkSubmission> Submissions { get; } = new List<HomeworkSubmission>();
 }

@@ -9,9 +9,18 @@ public class Teacher
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
 
-    // TODO: Add a relation to Users named UserId (one to one)
+    // Collection navigation to HomeworkAssignment
+    public ICollection<HomeworkAssignment> Assignments { get; set; } = new List<HomeworkAssignment>();
 
-    // TODO: Add a relation to Subjects named SubjectName (one to many)
+    // FK property to Users
+    public int UserId { get; set; }
 
-    // TODO: Add a relation to Classes named ClassId (one to many)
+    [Required]
+    public User User { get; set; } = null!;
+
+    // Collection navigation to Subjects
+    public ICollection<Subject> Subjects { get; } = new List<Subject>();
+
+    // Collection navigation to Classes
+    public ICollection<Class> Classes { get; } = new List<Class>();
 }

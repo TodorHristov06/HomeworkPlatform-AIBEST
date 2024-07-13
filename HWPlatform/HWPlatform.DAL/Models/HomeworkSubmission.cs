@@ -18,7 +18,18 @@ public class HomeworkSubmission
     [Required]
     public string Comment { get; set; } = string.Empty;
 
-    // TODO: Create a relation to Students named StudentId (one to one)
+    // Reference navigation to Grades
+    public Grade? Grade { get; set; }
+    
+    // FK property to Students
+    public int StudentId { get; set; }
 
-    // TODO: Create a relation to HomeworkAssignments named AssignmentId (one to many)
+    [Required]
+    public StudentDetails Student { get; set; } = null!;
+
+    // FK property to HomeworkAssignment
+    public int AssignmentId { get; set; }
+
+    [Required]
+    public HomeworkAssignment Assignment { get; set; } = null!;
 }
