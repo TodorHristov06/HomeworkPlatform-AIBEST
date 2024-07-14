@@ -20,9 +20,6 @@ public class Class
     // Collection navigation to StudentDetails
     public ICollection<StudentDetails> Students { get; } = new List<StudentDetails>();
 
-    // FK property to Teachers
-    public int TeacherId { get; set; }
-
-    [Required]
-    public Teacher Teacher { get; set; } = null!;
+    // Collection navigation to Teachers
+    public ICollection<Teacher> Teachers { get; } = new List<Teacher>();
 }
