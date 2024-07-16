@@ -73,7 +73,6 @@ namespace HWPlatform.PL.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<int>(type: "int", nullable: false),
-                    UserId1 = table.Column<int>(type: "int", nullable: false),
                     ClassId1 = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ClassId2 = table.Column<int>(type: "int", nullable: false),
                     ClassName = table.Column<string>(type: "nvarchar(450)", nullable: false),
@@ -99,12 +98,6 @@ namespace HWPlatform.PL.Migrations
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_StudentDetails_Users_UserId1",
-                        column: x => x.UserId1,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -113,8 +106,7 @@ namespace HWPlatform.PL.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    UserId1 = table.Column<int>(type: "int", nullable: false)
+                    UserId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -124,12 +116,6 @@ namespace HWPlatform.PL.Migrations
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Teachers_Users_UserId1",
-                        column: x => x.UserId1,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -164,8 +150,7 @@ namespace HWPlatform.PL.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TeacherId = table.Column<int>(type: "int", nullable: false),
-                    TeacherId1 = table.Column<int>(type: "int", nullable: false)
+                    TeacherId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -175,12 +160,6 @@ namespace HWPlatform.PL.Migrations
                         column: x => x.TeacherId,
                         principalTable: "Teachers",
                         principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Subjects_Teachers_TeacherId1",
-                        column: x => x.TeacherId1,
-                        principalTable: "Teachers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -248,8 +227,7 @@ namespace HWPlatform.PL.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Percentage = table.Column<int>(type: "int", nullable: false),
                     Feedback = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SubmissionId = table.Column<int>(type: "int", nullable: false),
-                    SubmissionId1 = table.Column<int>(type: "int", nullable: false)
+                    SubmissionId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -259,12 +237,6 @@ namespace HWPlatform.PL.Migrations
                         column: x => x.SubmissionId,
                         principalTable: "HomeworkSubmissions",
                         principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Grades_HomeworkSubmissions_SubmissionId1",
-                        column: x => x.SubmissionId1,
-                        principalTable: "HomeworkSubmissions",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -277,11 +249,6 @@ namespace HWPlatform.PL.Migrations
                 table: "Grades",
                 column: "SubmissionId",
                 unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Grades_SubmissionId1",
-                table: "Grades",
-                column: "SubmissionId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_HomeworkAssignments_SubjectId",
@@ -315,11 +282,6 @@ namespace HWPlatform.PL.Migrations
                 columns: new[] { "ClassName", "ClassYear" });
 
             migrationBuilder.CreateIndex(
-                name: "IX_StudentDetails_UserId1",
-                table: "StudentDetails",
-                column: "UserId1");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Subjects_TeacherId",
                 table: "Subjects",
                 column: "TeacherId");
@@ -329,11 +291,6 @@ namespace HWPlatform.PL.Migrations
                 table: "Teachers",
                 column: "UserId",
                 unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Teachers_UserId1",
-                table: "Teachers",
-                column: "UserId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Users_RoleId",
