@@ -12,8 +12,10 @@ public class StudentDetails
     [Required] 
     public User User { get; set; } = null!;
 
-    // FK property to Classes
-    public int ClassId { get; set; }
+    // Composite FK property to Classes
+    [ForeignKey("ClassId1, ClassId2")]
+    public string ClassId1 { get; set; } =string.Empty;
+    public int ClassId2 { get; set; }
 
     [Required]
     public Class Class { get; set; } = null!;

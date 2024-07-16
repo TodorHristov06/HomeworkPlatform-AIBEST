@@ -35,13 +35,17 @@ public class DBContext : DbContext
         // Create relationship between the Users and StudentDetails tables
         modelBuilder
             .Entity<User>()
-            .Property(u => u.Student)
+            .HasOne(u => u.Student)
+            .WithOne()
+            .HasForeignKey<StudentDetails>(sd => sd.UserId)
             .IsRequired(false);
 
         // Create relationship between the Users and Teachers tables
         modelBuilder
             .Entity<User>()
-            .Property(u => u.Teacher)
+            .HasOne(u => u.Teacher)
+            .WithOne()
+            .HasForeignKey<Teacher>(t => t.UserId)
             .IsRequired(false);
 
         // Create relationship between the StudentDetails and Classes tables
@@ -49,7 +53,7 @@ public class DBContext : DbContext
             .Entity<Class>()
             .HasMany(c => c.Students)
             .WithOne()
-            .HasForeignKey(sd => sd.ClassId)
+            .HasForeignKey(sd => new { sd.ClassId1, sd.ClassId2 })
             .OnDelete(DeleteBehavior.NoAction);
 
         // Create relationship between the Classes and Teachers tables
@@ -72,7 +76,7 @@ public class DBContext : DbContext
             .HasMany(t => t.Assignments)
             .WithOne()
             .HasForeignKey(ha => ha.TeacherId)
-            .OnDelete(DeleteBehavior.NoAction);
+            .OnDelete(DeleteBehavior.Restrict);
 
         // Create relationship between the HomeworkAssignemnts and HomeworkSubmissions tables
         modelBuilder
@@ -82,11 +86,21 @@ public class DBContext : DbContext
             .HasForeignKey(hs => hs.AssignmentId)
             .OnDelete(DeleteBehavior.NoAction);
 
-        // Create relationship between the HomeworkAssignments and Grades tables
+        // Create relationship between the HomeworkSubmissions and Grades tables
         modelBuilder
             .Entity<HomeworkSubmission>()
-            .Property(hs => hs.Grade)
+            .HasOne(hs => hs.Grade)
+            .WithOne()
+            .HasForeignKey<Grade>(g => g.SubmissionId)
             .IsRequired(false);
+
+        // Create relationship between StudentDetails and HomeworkSubmissions tables
+        modelBuilder
+            .Entity<HomeworkSubmission>()
+            .HasOne(hs => hs.Student)
+            .WithMany()
+            .HasForeignKey(hs => hs.StudentId)
+            .OnDelete(DeleteBehavior.Restrict);
 
         base.OnModelCreating(modelBuilder);
     }
