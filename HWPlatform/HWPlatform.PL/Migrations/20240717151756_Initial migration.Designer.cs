@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HWPlatform.PL.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20240716142757_Initial migration")]
+    [Migration("20240717151756_Initial migration")]
     partial class Initialmigration
     {
         /// <inheritdoc />
@@ -80,15 +80,10 @@ namespace HWPlatform.PL.Migrations
                     b.Property<int>("SubmissionId")
                         .HasColumnType("int");
 
-                    b.Property<int>("SubmissionId1")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("SubmissionId")
                         .IsUnique();
-
-                    b.HasIndex("SubmissionId1");
 
                     b.ToTable("Grades");
                 });
@@ -117,9 +112,6 @@ namespace HWPlatform.PL.Migrations
                     b.Property<int>("TeacherId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TeacherId1")
-                        .HasColumnType("int");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -129,8 +121,6 @@ namespace HWPlatform.PL.Migrations
                     b.HasIndex("SubjectId");
 
                     b.HasIndex("TeacherId");
-
-                    b.HasIndex("TeacherId1");
 
                     b.ToTable("HomeworkAssignments");
                 });
@@ -144,9 +134,6 @@ namespace HWPlatform.PL.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("AssignmentId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("AssignmentId1")
                         .HasColumnType("int");
 
                     b.Property<string>("Comment")
@@ -167,10 +154,7 @@ namespace HWPlatform.PL.Migrations
 
                     b.HasIndex("AssignmentId");
 
-                    b.HasIndex("AssignmentId1");
-
-                    b.HasIndex("StudentId")
-                        .IsUnique();
+                    b.HasIndex("StudentId");
 
                     b.ToTable("HomeworkSubmissions");
                 });
@@ -187,26 +171,12 @@ namespace HWPlatform.PL.Migrations
                     b.Property<int>("ClassId2")
                         .HasColumnType("int");
 
-                    b.Property<string>("ClassName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<int>("ClassNumber")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ClassYear")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId1")
                         .HasColumnType("int");
 
                     b.HasKey("UserId");
 
-                    b.HasIndex("UserId1");
-
                     b.HasIndex("ClassId1", "ClassId2");
-
-                    b.HasIndex("ClassName", "ClassYear");
 
                     b.ToTable("StudentDetails");
                 });
@@ -226,14 +196,9 @@ namespace HWPlatform.PL.Migrations
                     b.Property<int>("TeacherId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TeacherId1")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("TeacherId");
-
-                    b.HasIndex("TeacherId1");
 
                     b.ToTable("Subjects");
                 });
@@ -249,15 +214,10 @@ namespace HWPlatform.PL.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId1")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("UserId")
                         .IsUnique();
-
-                    b.HasIndex("UserId1");
 
                     b.ToTable("Teachers");
                 });
@@ -292,14 +252,9 @@ namespace HWPlatform.PL.Migrations
                     b.Property<int>("RoleId")
                         .HasColumnType("int");
 
-                    b.Property<int>("RolesId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("RoleId");
-
-                    b.HasIndex("RolesId");
 
                     b.ToTable("Users");
                 });
@@ -338,15 +293,9 @@ namespace HWPlatform.PL.Migrations
 
             modelBuilder.Entity("HWPlatform.DAL.Models.Grade", b =>
                 {
-                    b.HasOne("HWPlatform.DAL.Models.HomeworkSubmission", null)
+                    b.HasOne("HWPlatform.DAL.Models.HomeworkSubmission", "Submission")
                         .WithOne("Grade")
                         .HasForeignKey("HWPlatform.DAL.Models.Grade", "SubmissionId");
-
-                    b.HasOne("HWPlatform.DAL.Models.HomeworkSubmission", "Submission")
-                        .WithMany()
-                        .HasForeignKey("SubmissionId1")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
 
                     b.Navigation("Submission");
                 });
@@ -359,16 +308,10 @@ namespace HWPlatform.PL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("HWPlatform.DAL.Models.Teacher", null)
+                    b.HasOne("HWPlatform.DAL.Models.Teacher", "Teacher")
                         .WithMany("Assignments")
                         .HasForeignKey("TeacherId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.HasOne("HWPlatform.DAL.Models.Teacher", "Teacher")
-                        .WithMany()
-                        .HasForeignKey("TeacherId1")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Subject");
@@ -378,22 +321,16 @@ namespace HWPlatform.PL.Migrations
 
             modelBuilder.Entity("HWPlatform.DAL.Models.HomeworkSubmission", b =>
                 {
-                    b.HasOne("HWPlatform.DAL.Models.HomeworkAssignment", null)
+                    b.HasOne("HWPlatform.DAL.Models.HomeworkAssignment", "Assignment")
                         .WithMany("Submissions")
                         .HasForeignKey("AssignmentId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("HWPlatform.DAL.Models.HomeworkAssignment", "Assignment")
-                        .WithMany()
-                        .HasForeignKey("AssignmentId1")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("HWPlatform.DAL.Models.StudentDetails", "Student")
-                        .WithOne("HomeworkSubmission")
-                        .HasForeignKey("HWPlatform.DAL.Models.HomeworkSubmission", "StudentId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .WithMany("HomeworkSubmissions")
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Assignment");
@@ -403,26 +340,14 @@ namespace HWPlatform.PL.Migrations
 
             modelBuilder.Entity("HWPlatform.DAL.Models.StudentDetails", b =>
                 {
-                    b.HasOne("HWPlatform.DAL.Models.User", null)
+                    b.HasOne("HWPlatform.DAL.Models.User", "User")
                         .WithOne("Student")
                         .HasForeignKey("HWPlatform.DAL.Models.StudentDetails", "UserId");
 
-                    b.HasOne("HWPlatform.DAL.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId1")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("HWPlatform.DAL.Models.Class", null)
+                    b.HasOne("HWPlatform.DAL.Models.Class", "Class")
                         .WithMany("Students")
                         .HasForeignKey("ClassId1", "ClassId2")
                         .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.HasOne("HWPlatform.DAL.Models.Class", "Class")
-                        .WithMany()
-                        .HasForeignKey("ClassName", "ClassYear")
-                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Class");
@@ -432,16 +357,10 @@ namespace HWPlatform.PL.Migrations
 
             modelBuilder.Entity("HWPlatform.DAL.Models.Subject", b =>
                 {
-                    b.HasOne("HWPlatform.DAL.Models.Teacher", null)
+                    b.HasOne("HWPlatform.DAL.Models.Teacher", "Teacher")
                         .WithMany("Subjects")
                         .HasForeignKey("TeacherId")
                         .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.HasOne("HWPlatform.DAL.Models.Teacher", "Teacher")
-                        .WithMany()
-                        .HasForeignKey("TeacherId1")
-                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Teacher");
@@ -449,34 +368,22 @@ namespace HWPlatform.PL.Migrations
 
             modelBuilder.Entity("HWPlatform.DAL.Models.Teacher", b =>
                 {
-                    b.HasOne("HWPlatform.DAL.Models.User", null)
+                    b.HasOne("HWPlatform.DAL.Models.User", "User")
                         .WithOne("Teacher")
                         .HasForeignKey("HWPlatform.DAL.Models.Teacher", "UserId");
-
-                    b.HasOne("HWPlatform.DAL.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId1")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
 
                     b.Navigation("User");
                 });
 
             modelBuilder.Entity("HWPlatform.DAL.Models.User", b =>
                 {
-                    b.HasOne("HWPlatform.DAL.Models.UserRoles", null)
+                    b.HasOne("HWPlatform.DAL.Models.UserRoles", "Role")
                         .WithMany("Users")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("HWPlatform.DAL.Models.UserRoles", "Roles")
-                        .WithMany()
-                        .HasForeignKey("RolesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Roles");
+                    b.Navigation("Role");
                 });
 
             modelBuilder.Entity("HWPlatform.DAL.Models.Class", b =>
@@ -496,7 +403,7 @@ namespace HWPlatform.PL.Migrations
 
             modelBuilder.Entity("HWPlatform.DAL.Models.StudentDetails", b =>
                 {
-                    b.Navigation("HomeworkSubmission");
+                    b.Navigation("HomeworkSubmissions");
                 });
 
             modelBuilder.Entity("HWPlatform.DAL.Models.Subject", b =>

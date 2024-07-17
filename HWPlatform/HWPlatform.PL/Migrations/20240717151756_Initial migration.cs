@@ -49,8 +49,7 @@ namespace HWPlatform.PL.Migrations
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
-                    RoleId = table.Column<int>(type: "int", nullable: false),
-                    RolesId = table.Column<int>(type: "int", nullable: false)
+                    RoleId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -60,12 +59,6 @@ namespace HWPlatform.PL.Migrations
                         column: x => x.RoleId,
                         principalTable: "UserRoles",
                         principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Users_UserRoles_RolesId",
-                        column: x => x.RolesId,
-                        principalTable: "UserRoles",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -75,8 +68,6 @@ namespace HWPlatform.PL.Migrations
                     UserId = table.Column<int>(type: "int", nullable: false),
                     ClassId1 = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ClassId2 = table.Column<int>(type: "int", nullable: false),
-                    ClassName = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ClassYear = table.Column<int>(type: "int", nullable: false),
                     ClassNumber = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -87,12 +78,6 @@ namespace HWPlatform.PL.Migrations
                         columns: x => new { x.ClassId1, x.ClassId2 },
                         principalTable: "Classes",
                         principalColumns: new[] { "ClassName", "Year" });
-                    table.ForeignKey(
-                        name: "FK_StudentDetails_Classes_ClassName_ClassYear",
-                        columns: x => new { x.ClassName, x.ClassYear },
-                        principalTable: "Classes",
-                        principalColumns: new[] { "ClassName", "Year" },
-                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_StudentDetails_Users_UserId",
                         column: x => x.UserId,
@@ -188,7 +173,8 @@ namespace HWPlatform.PL.Migrations
                         name: "FK_HomeworkAssignments_Teachers_TeacherId",
                         column: x => x.TeacherId,
                         principalTable: "Teachers",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -216,7 +202,7 @@ namespace HWPlatform.PL.Migrations
                         column: x => x.StudentId,
                         principalTable: "StudentDetails",
                         principalColumn: "UserId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -268,18 +254,12 @@ namespace HWPlatform.PL.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_HomeworkSubmissions_StudentId",
                 table: "HomeworkSubmissions",
-                column: "StudentId",
-                unique: true);
+                column: "StudentId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_StudentDetails_ClassId1_ClassId2",
                 table: "StudentDetails",
                 columns: new[] { "ClassId1", "ClassId2" });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_StudentDetails_ClassName_ClassYear",
-                table: "StudentDetails",
-                columns: new[] { "ClassName", "ClassYear" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Subjects_TeacherId",
@@ -296,11 +276,6 @@ namespace HWPlatform.PL.Migrations
                 name: "IX_Users_RoleId",
                 table: "Users",
                 column: "RoleId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Users_RolesId",
-                table: "Users",
-                column: "RolesId");
         }
 
         /// <inheritdoc />

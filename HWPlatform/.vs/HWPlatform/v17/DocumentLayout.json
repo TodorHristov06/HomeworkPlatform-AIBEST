@@ -3,16 +3,32 @@
   "WorkspaceRootPath": "D:\\repos\\HomeworkPlatform-AIBEST\\HWPlatform\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{16F7144F-C4FE-4EAA-8B91-FCDF8F098836}|HWPlatform.PL\\HWPlatform.PL.csproj|d:\\repos\\homeworkplatform-aibest\\hwplatform\\hwplatform.pl\\migrations\\20240716142757_initial migration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{16F7144F-C4FE-4EAA-8B91-FCDF8F098836}|HWPlatform.PL\\HWPlatform.PL.csproj|solutionrelative:hwplatform.pl\\migrations\\20240716142757_initial migration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\repos\\HomeworkPlatform-AIBEST\\HWPlatform\\HWPlatform.PL\\Migrations\\20240717151756_Initial migration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HWPlatform.PL\\Migrations\\20240717151756_Initial migration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{04FA5267-B31E-4968-939B-58FE42C29409}|HWPlatform.DAL\\HWPlatform.DAL.csproj|d:\\repos\\homeworkplatform-aibest\\hwplatform\\hwplatform.dal\\data\\dbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{04FA5267-B31E-4968-939B-58FE42C29409}|HWPlatform.DAL\\HWPlatform.DAL.csproj|solutionrelative:hwplatform.dal\\data\\dbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{04FA5267-B31E-4968-939B-58FE42C29409}|HWPlatform.DAL\\HWPlatform.DAL.csproj|d:\\repos\\homeworkplatform-aibest\\hwplatform\\hwplatform.dal\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{04FA5267-B31E-4968-939B-58FE42C29409}|HWPlatform.DAL\\HWPlatform.DAL.csproj|solutionrelative:hwplatform.dal\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{04FA5267-B31E-4968-939B-58FE42C29409}|HWPlatform.DAL\\HWPlatform.DAL.csproj|d:\\repos\\homeworkplatform-aibest\\hwplatform\\hwplatform.dal\\models\\studentdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{04FA5267-B31E-4968-939B-58FE42C29409}|HWPlatform.DAL\\HWPlatform.DAL.csproj|solutionrelative:hwplatform.dal\\models\\studentdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{04FA5267-B31E-4968-939B-58FE42C29409}|HWPlatform.DAL\\HWPlatform.DAL.csproj|d:\\repos\\homeworkplatform-aibest\\hwplatform\\hwplatform.dal\\models\\homeworkassignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{04FA5267-B31E-4968-939B-58FE42C29409}|HWPlatform.DAL\\HWPlatform.DAL.csproj|solutionrelative:hwplatform.dal\\models\\homeworkassignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{04FA5267-B31E-4968-939B-58FE42C29409}|HWPlatform.DAL\\HWPlatform.DAL.csproj|d:\\repos\\homeworkplatform-aibest\\hwplatform\\hwplatform.dal\\models\\homeworksubmission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{04FA5267-B31E-4968-939B-58FE42C29409}|HWPlatform.DAL\\HWPlatform.DAL.csproj|solutionrelative:hwplatform.dal\\models\\homeworksubmission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{04FA5267-B31E-4968-939B-58FE42C29409}|HWPlatform.DAL\\HWPlatform.DAL.csproj|d:\\repos\\homeworkplatform-aibest\\hwplatform\\hwplatform.dal\\models\\teacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{04FA5267-B31E-4968-939B-58FE42C29409}|HWPlatform.DAL\\HWPlatform.DAL.csproj|solutionrelative:hwplatform.dal\\models\\teacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,14 +43,66 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "20240716142757_Initial migration.cs",
-              "DocumentMoniker": "D:\\repos\\HomeworkPlatform-AIBEST\\HWPlatform\\HWPlatform.PL\\Migrations\\20240716142757_Initial migration.cs",
-              "RelativeDocumentMoniker": "HWPlatform.PL\\Migrations\\20240716142757_Initial migration.cs",
-              "ToolTip": "D:\\repos\\HomeworkPlatform-AIBEST\\HWPlatform\\HWPlatform.PL\\Migrations\\20240716142757_Initial migration.cs*",
-              "RelativeToolTip": "HWPlatform.PL\\Migrations\\20240716142757_Initial migration.cs*",
-              "ViewState": "AQIAAGsAAAAAAAAAAAAAwHUAAAAvAAAA",
+              "Title": "20240717151756_Initial migration.cs",
+              "DocumentMoniker": "D:\\repos\\HomeworkPlatform-AIBEST\\HWPlatform\\HWPlatform.PL\\Migrations\\20240717151756_Initial migration.cs",
+              "RelativeDocumentMoniker": "HWPlatform.PL\\Migrations\\20240717151756_Initial migration.cs",
+              "ToolTip": "D:\\repos\\HomeworkPlatform-AIBEST\\HWPlatform\\HWPlatform.PL\\Migrations\\20240717151756_Initial migration.cs",
+              "RelativeToolTip": "HWPlatform.PL\\Migrations\\20240717151756_Initial migration.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-16T14:52:41.116Z",
+              "WhenOpened": "2024-07-17T15:17:56.482Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "StudentDetails.cs",
+              "DocumentMoniker": "D:\\repos\\HomeworkPlatform-AIBEST\\HWPlatform\\HWPlatform.DAL\\Models\\StudentDetails.cs",
+              "RelativeDocumentMoniker": "HWPlatform.DAL\\Models\\StudentDetails.cs",
+              "ToolTip": "D:\\repos\\HomeworkPlatform-AIBEST\\HWPlatform\\HWPlatform.DAL\\Models\\StudentDetails.cs",
+              "RelativeToolTip": "HWPlatform.DAL\\Models\\StudentDetails.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAA0wBoAAABpAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T15:15:11.707Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\repos\\HomeworkPlatform-AIBEST\\HWPlatform\\HWPlatform.DAL\\Models\\User.cs",
+              "RelativeDocumentMoniker": "HWPlatform.DAL\\Models\\User.cs",
+              "ToolTip": "D:\\repos\\HomeworkPlatform-AIBEST\\HWPlatform\\HWPlatform.DAL\\Models\\User.cs",
+              "RelativeToolTip": "HWPlatform.DAL\\Models\\User.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAswB4AAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T15:12:11.4Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Teacher.cs",
+              "DocumentMoniker": "D:\\repos\\HomeworkPlatform-AIBEST\\HWPlatform\\HWPlatform.DAL\\Models\\Teacher.cs",
+              "RelativeDocumentMoniker": "HWPlatform.DAL\\Models\\Teacher.cs",
+              "ToolTip": "D:\\repos\\HomeworkPlatform-AIBEST\\HWPlatform\\HWPlatform.DAL\\Models\\Teacher.cs",
+              "RelativeToolTip": "HWPlatform.DAL\\Models\\Teacher.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T14:53:57.703Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HomeworkAssignment.cs",
+              "DocumentMoniker": "D:\\repos\\HomeworkPlatform-AIBEST\\HWPlatform\\HWPlatform.DAL\\Models\\HomeworkAssignment.cs",
+              "RelativeDocumentMoniker": "HWPlatform.DAL\\Models\\HomeworkAssignment.cs",
+              "ToolTip": "D:\\repos\\HomeworkPlatform-AIBEST\\HWPlatform\\HWPlatform.DAL\\Models\\HomeworkAssignment.cs",
+              "RelativeToolTip": "HWPlatform.DAL\\Models\\HomeworkAssignment.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAADwvyQAAABhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T14:51:27.859Z",
               "EditorCaption": ""
             },
             {
@@ -45,20 +113,20 @@
               "RelativeDocumentMoniker": "HWPlatform.DAL\\Data\\DBContext.cs",
               "ToolTip": "D:\\repos\\HomeworkPlatform-AIBEST\\HWPlatform\\HWPlatform.DAL\\Data\\DBContext.cs",
               "RelativeToolTip": "HWPlatform.DAL\\Data\\DBContext.cs",
-              "ViewState": "AQIAAE4AAAAAAAAAAAAQwGYAAAAvAAAA",
+              "ViewState": "AQIAAEwAAAAAAAAAAAAQwB4AAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-16T14:49:20.327Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "HomeworkSubmission.cs",
               "DocumentMoniker": "D:\\repos\\HomeworkPlatform-AIBEST\\HWPlatform\\HWPlatform.DAL\\Models\\HomeworkSubmission.cs",
               "RelativeDocumentMoniker": "HWPlatform.DAL\\Models\\HomeworkSubmission.cs",
               "ToolTip": "D:\\repos\\HomeworkPlatform-AIBEST\\HWPlatform\\HWPlatform.DAL\\Models\\HomeworkSubmission.cs",
               "RelativeToolTip": "HWPlatform.DAL\\Models\\HomeworkSubmission.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAAswBgAAAAmAAAA",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAswBoAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-16T14:49:02.017Z",
               "EditorCaption": ""

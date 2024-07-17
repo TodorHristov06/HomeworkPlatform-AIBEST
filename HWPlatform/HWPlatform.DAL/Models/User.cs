@@ -28,7 +28,7 @@ public class User
     public int RoleId { get; set; }
 
     [Required]
-    public UserRoles Roles { get; set; } = null!;
+    public UserRoles Role { get; set; } = null!;
 
     // Reference navigation to StudentDetails
     public StudentDetails? Student { get; set; }

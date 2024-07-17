@@ -28,7 +28,7 @@ public class DBContext : DbContext
         modelBuilder
             .Entity<UserRoles>()
             .HasMany(ur => ur.Users)
-            .WithOne()
+            .WithOne(u => u.Role)
             .HasForeignKey(u => u.RoleId)
             .OnDelete(DeleteBehavior.NoAction);
 
@@ -36,7 +36,7 @@ public class DBContext : DbContext
         modelBuilder
             .Entity<User>()
             .HasOne(u => u.Student)
-            .WithOne()
+            .WithOne(sd => sd.User)
             .HasForeignKey<StudentDetails>(sd => sd.UserId)
             .IsRequired(false);
 
@@ -44,7 +44,7 @@ public class DBContext : DbContext
         modelBuilder
             .Entity<User>()
             .HasOne(u => u.Teacher)
-            .WithOne()
+            .WithOne(t => t.User)
             .HasForeignKey<Teacher>(t => t.UserId)
             .IsRequired(false);
 
@@ -52,7 +52,7 @@ public class DBContext : DbContext
         modelBuilder
             .Entity<Class>()
             .HasMany(c => c.Students)
-            .WithOne()
+            .WithOne(sd => sd.Class)
             .HasForeignKey(sd => new { sd.ClassId1, sd.ClassId2 })
             .OnDelete(DeleteBehavior.NoAction);
 
@@ -66,7 +66,7 @@ public class DBContext : DbContext
         modelBuilder
             .Entity<Teacher>()
             .HasMany(t => t.Subjects)
-            .WithOne()
+            .WithOne(s => s.Teacher)
             .HasForeignKey(s => s.TeacherId)
             .OnDelete(DeleteBehavior.NoAction);
 
@@ -74,7 +74,7 @@ public class DBContext : DbContext
         modelBuilder
             .Entity<Teacher>()
             .HasMany(t => t.Assignments)
-            .WithOne()
+            .WithOne(ha => ha.Teacher)
             .HasForeignKey(ha => ha.TeacherId)
             .OnDelete(DeleteBehavior.Restrict);
 
@@ -82,7 +82,7 @@ public class DBContext : DbContext
         modelBuilder
             .Entity<HomeworkAssignment>()
             .HasMany(ha => ha.Submissions)
-            .WithOne()
+            .WithOne(hs => hs.Assignment)
             .HasForeignKey(hs => hs.AssignmentId)
             .OnDelete(DeleteBehavior.NoAction);
 
@@ -90,7 +90,7 @@ public class DBContext : DbContext
         modelBuilder
             .Entity<HomeworkSubmission>()
             .HasOne(hs => hs.Grade)
-            .WithOne()
+            .WithOne(g => g.Submission)
             .HasForeignKey<Grade>(g => g.SubmissionId)
             .IsRequired(false);
 
@@ -98,7 +98,7 @@ public class DBContext : DbContext
         modelBuilder
             .Entity<HomeworkSubmission>()
             .HasOne(hs => hs.Student)
-            .WithMany()
+            .WithMany(sd => sd.HomeworkSubmissions)
             .HasForeignKey(hs => hs.StudentId)
             .OnDelete(DeleteBehavior.Restrict);
 

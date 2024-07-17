@@ -24,5 +24,5 @@ public class StudentDetails
     public int ClassNumber { get; set; }
 
     // Reference navigation to HomeworkSubmission
-    public HomeworkSubmission? HomeworkSubmission { get; set; }
+    public ICollection<HomeworkSubmission> HomeworkSubmissions { get; } = new List<HomeworkSubmission>();
 }
